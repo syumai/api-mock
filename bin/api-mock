@@ -96,6 +96,8 @@ process.on( 'SIGINT', function() {
 process.on('uncaughtException', function(err) {
     if(err.errno === 'EADDRINUSE') {
          winston.error('The specified port is being used by another process. Specify a different port with -p.');
+    } else if(typeof err === 'object') {
+         winston.error(err.message);
     } else {
          winston.error(err + '\n' + err.stack);
     }
