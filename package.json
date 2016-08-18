@@ -9,8 +9,8 @@
   },
   "scripts": {
     "test": "scripts/test",
-    "build": "scripts/build",
-    "prepublish": "scripts/prepublish"
+    "build": "coffee -b -c -o lib/ src/",
+    "prepublish": "npm run build"
   },
   "dependencies": {
     "express": "~3.4.7",
